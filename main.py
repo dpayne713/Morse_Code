@@ -19,6 +19,7 @@ def convert():
         save_btn.grid(column=0, row=4)
     else:
         return_string = morse_logic.from_morse(text_input)
+        save_btn.destroy()
     output_txt_area.delete('1.0', 'end')
     output_txt_area.insert("1.0", return_string)
 
