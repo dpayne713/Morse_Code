@@ -4,6 +4,15 @@ class Audio:
     def __init__(self):
         pass
     def write_sine_wave_file(self, morse_string):
+        """This Method takes the morse string. Splits it out and creates chunks based on their audio equivalent.
+        It combines the chunks and returns the value to be saved to an audio file.
+
+        destination format:
+            bit-depth = 16bit
+            sample rate = 44100
+
+        Returned composite is assumed to use the scipy.io.wavfile write function to save to local disc.
+        """
         length = {
             # one unit
             ".": .05,

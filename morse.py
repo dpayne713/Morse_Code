@@ -65,6 +65,13 @@ class MorseCodeLogic:
 
 
     def from_morse(self, str:str) -> str:
+        """This method accepts a string of morse code characters and compares it to the internal
+        conversion table.
+        It returns a human-readable string assuming the user input values that match the conversion table
+        Currently no logic is employed to try and correct for incorrectly formatted strings"""
+        # TODO
+        #  - Create key that assists users to input correctly formatted code
+
         characters = [" ".join(x.split(" ")) for x in str.split('/')]
         output= ''
         for x in characters:
