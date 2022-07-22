@@ -2,13 +2,14 @@ from tkinter import *
 from tkinter import filedialog
 from tkinter.ttk import *
 from morse import MorseCodeLogic
-import audio
+from audio import Audio
 from scipy.io.wavfile import write
 
-audio_files = audio.Audio()
+audio_files = Audio()
 morse_logic = MorseCodeLogic()
 
 morse_string = None
+
 
 def convert():
     """
@@ -41,6 +42,7 @@ def save_file(morse_str):
     f_path = filedialog.asksaveasfile(defaultextension='.wav', initialfile="morse_code.wav").name
     write(f_path, data['sample_rate'], data['data'])
 
+
 # tkinter base window
 root = Tk()
 root.minsize(width=600, height=400)
@@ -49,15 +51,17 @@ root.minsize(width=600, height=400)
 content = Frame(root, padding=30)
 content.grid(column=0, row=0)
 root.title("Morse Code Converter")
-input_label = Label(content, text="Input text or morse code: ").grid(column=0, row=1)
+input_label = Label(content, text="Input text or morse code: ")
+input_label.grid(column=0, row=1)
 input_text = StringVar()
 txt_area = Text(content, width=50, height=20)
 txt_area.grid(column=0, row=2)
-output_txt_area_label = Label(content, text="Output: ").grid(column=0, row=3)
-output_txt_area = Text(content, width=50, height=20 )
+output_txt_area_label = Label(content, text="Output: ")
+output_txt_area_label.grid(column=0, row=3)
+output_txt_area = Text(content, width=50, height=20)
 output_txt_area.grid(column=0, row=4)
 
-#Frame for interactable elements
+# Frame for interactable elements
 btn_frame = Frame(content, padding=40)
 btn_frame.grid(column=1, row=0, rowspan=5)
 to_morse = BooleanVar(None, True)

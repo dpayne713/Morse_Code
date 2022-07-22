@@ -1,8 +1,10 @@
 import numpy as np
 
+
 class Audio:
     def __init__(self):
         pass
+
     def write_sine_wave_file(self, morse_string):
         """This Method takes the morse string. Splits it out and creates chunks based on their audio equivalent.
         It combines the chunks and returns the value to be saved to an audio file.
@@ -34,16 +36,13 @@ class Audio:
             else:
                 return amplitude_on * np.sin(2 * np.pi * t * fs)
 
-
-        chunks= []
+        chunks = []
         for x in list(morse_string):
             chunks.append(create_file_chunk(x))
             chunks.append(create_file_chunk(" "))
 
         return {
-            "data" : np.concatenate(chunks).astype(np.int16),
+            "data": np.concatenate(chunks).astype(np.int16),
             "sample_rate": samplerate,
             "num_channels": 1,
-            }
-
-
+        }
