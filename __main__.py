@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from tkinter import *
 from tkinter import filedialog
 from tkinter.ttk import *
@@ -61,7 +63,7 @@ output_txt_area_label.grid(column=0, row=3)
 output_txt_area = Text(content, width=50, height=20)
 output_txt_area.grid(column=0, row=4)
 
-# Frame for interactable elements
+# Frame for intractable elements
 btn_frame = Frame(content, padding=40)
 btn_frame.grid(column=1, row=0, rowspan=5)
 to_morse = BooleanVar(None, True)
